@@ -60,8 +60,7 @@ export default function Home() {
         <p
           className="font-playfair italic text-lg sm:text-xl text-[#F5F0E8] opacity-70 leading-relaxed max-w-md"
         >
-          Veinte años construyendo los estudios donde Medellín se convirtió en
-          la capital de la música latina.
+          Estuve adentro cuando Medellín se convirtió en la capital de la música latina.
         </p>
 
         {/* Email form */}
@@ -113,9 +112,6 @@ export default function Home() {
         >
           Septiembre 2026&nbsp;&nbsp;·&nbsp;&nbsp;Medellín, Colombia
         </p>
-
-        {/* Bottom rule */}
-        <div className="w-12 h-px bg-[#C9A84C] opacity-20" />
 
         {/* Social icons */}
         <div className="flex items-center gap-6">
