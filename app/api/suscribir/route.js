@@ -11,11 +11,17 @@ export async function POST(request) {
 
   // Guardar en Resend Audience
   const audienceId = process.env.RESEND_AUDIENCE_ID;
+  console.log('[suscribir] audienceId:', audienceId);
+
   if (audienceId) {
-    await resend.contacts.create({
+    const { data: contactData, error: contactError } = await resend.contacts.create({
       email,
       audienceId,
     });
+    console.log('[suscribir] contacts.create data:', JSON.stringify(contactData));
+    console.log('[suscribir] contacts.create error:', JSON.stringify(contactError));
+  } else {
+    console.log('[suscribir] RESEND_AUDIENCE_ID no definido, se omite guardar contacto');
   }
 
   // Enviar correo de confirmación
