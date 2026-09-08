@@ -1,13 +1,48 @@
 @import "tailwindcss";
 
-@theme inline {
-  --font-playfair: var(--playfair);
-  --font-dm: var(--dm-sans);
-  --color-gold: #C9A84C;
-  --color-cream: #F5F0E8;
+/* ─────────────────────────────────────────────────────────────────────────────
+   Identidad de jjtellez.lat
+
+   Tailwind 4: la configuración vive aquí, en @theme, no en tailwind.config.ts.
+   Cada valor declarado abajo genera sus utilidades solo (bg-papel, text-suave,
+   font-display…).
+
+   La regla del azul: --color-accion aparece SOLO donde algo se puede tocar.
+   Un color que está en todas partes deja de significar algo.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@theme {
+  --color-papel:  #FBFCFD;
+  --color-blanco: #FFFFFF;
+  --color-noche:  #0E1A2B;
+  --color-accion: #2E6BE6;
+  --color-tinta:  #0E1A2B;
+  --color-suave:  #5A6673;
+  --color-linea:  #E4E8EC;
+
+  /* Cada tipografía tiene un trabajo, y por eso hay tres y no una. */
+  --font-ui:      var(--jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--playfair), Georgia, "Times New Roman", serif;
+  --font-sans:    var(--roboto), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background: #000000;
-  color: #F5F0E8;
+  background: var(--color-papel);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* El foco se ve. Alguien que navega con el teclado tiene que saber dónde está. */
+:focus-visible {
+  outline: 2px solid var(--color-accion);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
