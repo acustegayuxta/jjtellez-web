@@ -16,14 +16,13 @@ export const perfil = {
 
   foto: {
     src: "/jose-julian-tellez-garcia.jpg",
-    alt: "José Julián Téllez García en un estudio de grabación",
+    alt: "Retrato de José Julián Téllez García",
     /**
-     * Ponlo en true cuando el archivo exista en public/. Mientras sea false, la
-     * cabecera muestra un hueco sobrio en vez de una imagen rota: una foto que
-     * no carga se ve peor que no tener foto.
-     * Lo ideal: horizontal, dentro de un estudio, en jpg o webp (no png).
+     * En false, la cabecera muestra un hueco sobrio en vez de una imagen rota:
+     * una foto que no carga se ve peor que no tener foto.
+     * El archivo viene recortado a 4:5, que es la proporción del marco.
      */
-    lista: false,
+    lista: true,
   },
 
   // ── Perfiles ───────────────────────────────────────────────────────────────
