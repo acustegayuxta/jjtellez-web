@@ -29,7 +29,16 @@ export const metadata: Metadata = {
     title: `${perfil.nombre} — ${perfil.titulo}`,
     description: perfil.frase,
   },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: "summary_large_image",
+    title: `${perfil.nombre} — ${perfil.titulo}`,
+    description: perfil.frase,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
 };
 
 /**
