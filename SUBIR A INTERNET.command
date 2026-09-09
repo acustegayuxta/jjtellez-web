@@ -32,7 +32,10 @@ echo ""
 INTENTOS=30
 LISTO=0
 for ((i = 1; i <= INTENTOS; i++)); do
-  VIVO=$(curl -s --max-time 10 "$SITIO/api/version" | sed -n 's/.*"commit":"\([^"]*\)".*/\1/p')
+  # -L es indispensable: jjtellez.lat redirige a www.jjtellez.lat y sin seguir
+  # el salto llega "Redirecting..." en vez del JSON, y esto nunca daria por bueno
+  # un despliegue que si funciono.
+  VIVO=$(curl -sL --max-time 10 "$SITIO/api/version" | sed -n 's/.*"commit":"\([^"]*\)".*/\1/p')
   if [ "$VIVO" = "$MIO" ]; then
     LISTO=1
     break
