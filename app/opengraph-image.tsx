@@ -77,6 +77,8 @@ export default async function Imagen() {
           />
           <div
             style={{
+              display: "flex",
+              flexDirection: "column",
               fontFamily: fuente ? "Playfair" : undefined,
               fontSize: 54,
               lineHeight: 1.18,
@@ -84,11 +86,9 @@ export default async function Imagen() {
               marginBottom: 44,
             }}
           >
-            Hay una habitación antes
-            <br />
-            de cada canción.
-            <br />
-            Casi nadie la ve.
+            <div>Hay una habitación antes</div>
+            <div>de cada canción.</div>
+            <div>Casi nadie la ve.</div>
           </div>
           <div style={{ fontSize: 27, fontWeight: 600, marginBottom: 10 }}>{perfil.nombre}</div>
           <div style={{ fontSize: 22, color: SUAVE }}>{perfil.titulo}</div>
