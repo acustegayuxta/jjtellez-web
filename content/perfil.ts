@@ -6,6 +6,26 @@
 
 export const perfil = {
   nombre: "José Julián Téllez García",
+
+  /**
+   * Las otras formas en que la gente escribe su nombre.
+   *
+   * No son un adorno: son la lista que se le declara al buscador para que
+   * entienda que «José Julián Téllez», «Jose Julian Tellez Garcia» y el nombre
+   * completo con tildes son la misma persona y no tres. Sin esto, cada forma
+   * compite por su lado y ninguna gana.
+   *
+   * La forma con la que firma sus publicaciones va primero de las largas,
+   * porque es la única que un tercero puede verificar en una fuente externa.
+   */
+  nombreAlterno: [
+    "José Julián Téllez",
+    "Jose Julian Tellez Garcia",
+    "Jose Julian Tellez",
+    "J. J. Téllez García",
+    "JJ Téllez",
+  ],
+
   /** Cómo se presenta en una línea. Sin adjetivos. */
   titulo: "Ingeniero de sonido especializado en acústica",
   ubicacion: "Medellín, Colombia",
@@ -50,6 +70,13 @@ export const perfil = {
       revista: "Revista Facultad de Ingeniería, Universidad de Antioquia",
       anio: 2015,
       doi: "https://doi.org/10.17533/udea.redin.n75a17",
+      /** Tal como está publicado. Su nombre va completo y con tildes. */
+      autores: [
+        "Diego Mauricio Murillo Gómez",
+        "Juan Camilo Gil Carvajal",
+        "Valentina Zapata Rodríguez",
+        "José Julián Téllez García",
+      ],
     },
   },
 

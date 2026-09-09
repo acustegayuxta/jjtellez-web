@@ -57,6 +57,7 @@ function datosDePersona() {
     "@type": "Person",
     "@id": `${SITIO}/#persona`,
     name: perfil.nombre,
+    alternateName: perfil.nombreAlterno,
     givenName: "José Julián",
     familyName: "Téllez García",
     jobTitle: perfil.titulo,

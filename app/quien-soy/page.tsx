@@ -45,12 +45,43 @@ function datosDePagina() {
   };
 }
 
+/**
+ * El artículo publicado, declarado aparte y con sus cuatro autores.
+ *
+ * Es el único dato del sitio que un tercero puede comprobar contra una fuente
+ * que no controlamos: el DOI existe, la revista existe y el artículo está
+ * indexado. Eso es lo que convierte «José Julián Téllez García» de una cadena
+ * de texto en una persona con registro público.
+ */
+function datosDePublicacion() {
+  const pub = perfil.credenciales.publicacion;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "@id": pub.doi,
+    headline: pub.titulo,
+    datePublished: String(pub.anio),
+    inLanguage: "es",
+    sameAs: pub.doi,
+    isPartOf: { "@type": "Periodical", name: pub.revista },
+    author: pub.autores.map((nombre) =>
+      nombre === perfil.nombre
+        ? { "@id": `${SITIO}/#persona` }
+        : { "@type": "Person", name: nombre },
+    ),
+  };
+}
+
 export default function QuienSoy() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16 flex flex-col gap-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(datosDePagina()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(datosDePublicacion()) }}
       />
       <h1 className="font-display text-[34px] leading-tight text-balance">Quién soy</h1>
       <PestanasQuienSoy />
