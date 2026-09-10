@@ -1,9 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { perfil } from "@/content/perfil";
 import { escritos } from "@/content/escritos";
 import { guias } from "@/content/guias";
 import { videos } from "@/content/videos";
 import Boletin from "@/components/Boletin";
 import VideoTarjeta from "@/components/VideoTarjeta";
+
+export const metadata: Metadata = {
+  description:
+    `${perfil.nombre}, ${perfil.titulo.toLowerCase()}. ` +
+    "Escritos y guías sobre acústica, estudios de grabación y el oficio de " +
+    "hacer que un cuarto suene. Diseño de estudios en nueve países.",
+  alternates: { canonical: "/" },
+};
 
 function Seccion({
   titulo, verMas, hrefMas, children,

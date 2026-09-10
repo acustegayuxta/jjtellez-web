@@ -95,12 +95,18 @@ export default function Cabecera() {
           )}
         </div>
         <div className="flex flex-col gap-5">
-          <h1 className="font-display text-white text-[30px] leading-[1.15] sm:text-[38px] md:text-[44px] text-balance">
+          {/*
+            La frase manda a la vista; el nombre manda en la estructura.
+            El H1 le dice al buscador de quien es esta pagina, y para eso no
+            necesita ser el texto mas grande: solo tiene que ser el primero.
+            Visualmente no cambia nada.
+          */}
+          <p className="font-display text-white text-[30px] leading-[1.15] sm:text-[38px] md:text-[44px] text-balance">
             {perfil.frase}
-          </h1>
-          <p className="font-ui text-[13px] text-white/60">
-            {perfil.nombre} · {perfil.titulo}
           </p>
+          <h1 className="font-ui text-[13px] font-normal text-white/60">
+            {perfil.nombre} · {perfil.titulo}
+          </h1>
         </div>
       </div>
     </header>
